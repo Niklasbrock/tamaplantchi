@@ -5,18 +5,17 @@
 #include "SDCard.h"
 
 // Defining the pins
-#define MOISTURE_PIN A0
 const uint8_t rs = 4, enable = 6, d0 = 10, d1 = 11, d2 = 12, d3 = 13;
-
+#define MOISTURE_PIN A0
 #define HAPPINESS_THRESHOLD 100
 #define BUTTON_PIN 9
 #define SDCARD_PIN 8
 
 // Call constructors
 Button button(BUTTON_PIN);
-Plant plant(HAPPINESS_THRESHOLD);
-LCD lcd(rs, enable, d0, d1, d2, d3, button);
 MoistureSensor moistureSensor(MOISTURE_PIN);
+Plant plant(moistureSensor);
+LCD lcd(rs, enable, d0, d1, d2, d3, button);
 SDCard sdCard(SDCARD_PIN);
 
 void setup() {

@@ -1,7 +1,7 @@
 #ifndef _PLANT_h
 #define _PLANT_h
 #include <Arduino.h>
-
+#include "MoistureSensor.h"
 
 enum MessageType {
   HELLO,
@@ -13,7 +13,7 @@ enum MessageType {
 
 class Plant {
 public:
-  Plant(int happinessThreshold);
+  Plant(MoistureSensor& moistureSensor);
   void updateHappiness(); 
   void levelUp();
   void checkInteraction(int gesture);
@@ -29,7 +29,7 @@ public:
   unsigned long getLastWatering();
 
 private:
-  int _moisturePin;
+  MoistureSensor _moistureSensor;
   int _level;
   int _happiness;
   int _happinessThreshold;

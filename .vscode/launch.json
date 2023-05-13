@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "s:/Dropbox/04. ITU - BDDIT/Physical Comp/Exam Project/tamaplantchi-oop",
-      "program": "s:/Dropbox/04. ITU - BDDIT/Physical Comp/Exam Project/tamaplantchi-oop/build/Debug/outDebug",
+      "cwd": "s:/Dropbox/04. ITU - BDDIT/Physical Comp/Exam Project/Tamaplantchi",
+      "program": "s:/Dropbox/04. ITU - BDDIT/Physical Comp/Exam Project/Tamaplantchi/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

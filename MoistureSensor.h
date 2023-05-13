@@ -1,3 +1,6 @@
+#ifndef MOISTURESENSOR_H
+#define MOISTURESENSOR_H
+
 #include <Arduino.h>
 class MoistureSensor {
   private:
@@ -11,3 +14,5 @@ class MoistureSensor {
     MoistureSensor(int pin);
     int getMoistureLevel(unsigned long currentTime);
 };
+
+#endif // MOISTURESENSOR_H

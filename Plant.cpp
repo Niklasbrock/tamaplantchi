@@ -8,8 +8,8 @@ const char* Plant::_messages[] = {
     // Add more messages as needed
 };
 
-Plant::Plant(int happinessThreshold)
-  : _happinessThreshold(happinessThreshold) {
+Plant::Plant(MoistureSensor& moistureSensor)
+  : _moistureSensor(moistureSensor) {
   _level = 2;
   _happiness = 0;
   _lastInteraction = millis();
