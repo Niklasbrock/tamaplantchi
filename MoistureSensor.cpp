@@ -18,20 +18,22 @@ int MoistureSensor::getMoistureLevel(unsigned long currentTime){
     _moisture = readMoisture();
     _lastUpdate = _currentTime;
     Serial.println(_moisture);
-    if(_moisture > 850){
+    if(_moisture > 950){
       _moisture = 0;
-    } else if (_moisture > 800){
+    } else if (_moisture > 850){
         _moisture = 1;
     } else if (_moisture > 750){
         _moisture = 2;
-    } else if (_moisture > 700){
-        _moisture = 3;
     } else if (_moisture > 650){
+        _moisture = 3;
+    } else if (_moisture > 550){
         _moisture = 4;
-    } else if (_moisture > 600){
+    } else if (_moisture > 450){
         _moisture = 5;
-    } else {
+    } else if (_moisture > 350){
         _moisture = 6;
+    } else {
+        _moisture = 7;
     }
   }
   return _moisture;

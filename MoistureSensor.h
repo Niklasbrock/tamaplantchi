@@ -8,9 +8,9 @@ class MoistureSensor {
     int _moisture;
     unsigned long _lastUpdate;
     unsigned long _currentTime;
-    int readMoisture();
 
   public:
+    int readMoisture();
     MoistureSensor(int pin);
     int getMoistureLevel(unsigned long currentTime);
 };

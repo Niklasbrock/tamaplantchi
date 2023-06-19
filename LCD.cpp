@@ -9,18 +9,24 @@ LCD::LCD(uint8_t rs, uint8_t enable, uint8_t d0, uint8_t d1, uint8_t d2, uint8_t
   // Scrolling variables
   _lastScrollTime = 0;
   _scrollPosition = _lcdColumns;
-  _currentTime = millis();
+  _currentTime = 0;
+  // Set the starting screen to first
+  _pageSelect = 1;
 }
 
-void LCD::updateDisplay(int progress, String message, int level, unsigned long currentTime){
+void LCD::updateDisplay(int progress, String message, int level, unsigned long timeSinceWatering, unsigned long currentTime){
   _currentTime = currentTime;
   if(_currentTime - _lastUpdate > 1000 || _currentTime < _lastUpdate){
     _lastUpdate = _currentTime;
-    // TODO, change this clear to only clear the button row
-    clear();
+    clearRow(1);
     setProgressBar(progress);
-    setLevel(level);
+    if (_button.isPressed()){
+      updateTimeSinceWatering(timeSinceWatering);
+    } else{
+      setLevel(level);
+    }
     if(message.length() <= 15){
+      clearRow(0);
       setMessage(message);
     }
   }
@@ -28,6 +34,7 @@ void LCD::updateDisplay(int progress, String message, int level, unsigned long c
     setMessage(message);
   }
 }
+
 
 void LCD::createCustomCharacters() {
   createChar(0, box);
@@ -71,6 +78,32 @@ void LCD::setLevel(int level){
   print(level);
   //TODO Add a arrow up or down to indicate if lvl is increasing or decreasing
 }
+
+
+void LCD::updateTimeSinceWatering(unsigned long timeSinceWatering){
+  Serial.println(timeSinceWatering);
+  
+  // Convert milliseconds to seconds
+  unsigned long totalSeconds = timeSinceWatering / 1000;
+  
+  // Calculate days, hours, minutes
+  unsigned long days = totalSeconds / 86400;  //60 * 60 * 24
+  unsigned long hours = (totalSeconds % 86400) / 3600;  //60 * 60
+  unsigned long minutes = (totalSeconds % 3600) / 60;
+  Serial.println(days);
+  Serial.println(hours);
+  Serial.println(minutes);
+  // Print the results
+  setCursor(0,1);
+  print(days);
+  print("d");
+  print(hours);
+  print("h");
+  print(minutes);
+  print("m");
+}
+
+
 void LCD::setMessage(String message){
   if(message.length() < _lcdColumns){
     setCursor(0,0);
@@ -92,8 +125,26 @@ void LCD::setMessage(String message){
     }
 }
 
-void LCD::setButton(Button button){
+void LCD::clearRow(int row) {
+  setCursor(0, row);
+  for (int i = 0; i < _lcdColumns; i++) {
+    print(" ");
+  }
+}
+
+void LCD::setButton(Button& button){
   _button = button;
+}
+
+Button& LCD::getButton(){
+  return _button;
+}
+void LCD::setPageSelect(int page){
+  _pageSelect = page;
+}
+
+int LCD::getPageSelect(){
+  return _pageSelect;
 }
 
 byte box[8] = {

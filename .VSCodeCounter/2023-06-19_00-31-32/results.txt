@@ -1,0 +1,43 @@
+Date : 2023-06-19 00:31:32
+Directory : s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi
+Total : 16 files,  1224 codes, 32 comments, 173 blanks, all 1429 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         15 |        630 |         32 |         87 |        749 |
+| HTML     |          1 |        594 |          0 |         86 |        680 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                     | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                        |         16 |      1,224 |         32 |        173 |      1,429 |
+| . (Files)                                                                                                |         15 |        630 |         32 |         87 |        749 |
+| Markdown for Report                                                                                      |          1 |        594 |          0 |         86 |        680 |
++----------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                 | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Button.cpp                            | C++      |         26 |          1 |          0 |         27 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Button.h                              | C++      |         17 |          0 |          2 |         19 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\DistanceSensor.cpp                    | C++      |          0 |          0 |          1 |          1 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\DistanceSensor.h                      | C++      |          0 |          0 |          1 |          1 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Face.cpp                              | C++      |         60 |          5 |          5 |         70 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Face.h                                | C++      |         26 |          0 |          6 |         32 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\LCD.cpp                               | C++      |        161 |          8 |         21 |        190 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\LCD.h                                 | C++      |         36 |          0 |          6 |         42 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Markdown for Report\Tamaplantchi.html | HTML     |        594 |          0 |         86 |        680 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\MoistureSensor.cpp                    | C++      |         36 |          0 |          4 |         40 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\MoistureSensor.h                      | C++      |         15 |          0 |          3 |         18 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Plant.cpp                             | C++      |         86 |          6 |         15 |        107 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Plant.h                               | C++      |         48 |          0 |          4 |         52 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\SDCard.cpp                            | C++      |         35 |          0 |          5 |         40 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\SDCard.h                              | C++      |         14 |          0 |          4 |         18 |
+| s:\Dropbox\04. ITU - BDDIT\Physical Comp\Exam Project\Tamaplantchi\Tamaplantchi.ino                      | C++      |         70 |         12 |         10 |         92 |
+| Total                                                                                                    |          |      1,224 |         32 |        173 |      1,429 |
++----------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
