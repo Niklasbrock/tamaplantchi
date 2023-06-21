@@ -14,6 +14,9 @@ class Button{
     bool _lastState;
     unsigned long _lastUpdate;
     unsigned long _currentTime;
+    unsigned long _lastUpdateTime;
+    bool _buttonWasReleased;
+
 };
 
 #endif // BUTTON_H

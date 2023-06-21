@@ -27,7 +27,7 @@ void Face::defineMood(int happiness, int moisture, unsigned long currentTime) {
     // Serial.println(moisture);
     if (happiness >= 70 && moisture >= 3 && moisture <= 6) {
       expression("happy");
-    } else if (happiness == 50 && moisture >= 2 && moisture <= 4) {
+    } else if (happiness < 70 && happiness >= 50 && moisture >= 2 && moisture <= 5) {
       expression("default");
     } else if (happiness <= 30 && moisture >= 2 && moisture <= 4) {
       expression("bored");
@@ -45,6 +45,13 @@ void Face::defineMood(int happiness, int moisture, unsigned long currentTime) {
       expression("default");
     }
   }
+}
+
+bool Face::isSleeping(){
+  return _sleeping;
+}
+void Face::setSleeping(bool sleeping){
+  _sleeping = sleeping;
 }
 
 void Face::expression(String expression) {
@@ -65,5 +72,7 @@ void Face::expression(String expression) {
     displayImage(IMAGES[6]);
   } else if (expression == "angry") {
     displayImage(IMAGES[7]);
+  } else if (expression == "sleepy") {
+    displayImage(IMAGES[8]);
   }
 }

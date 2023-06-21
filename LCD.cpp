@@ -14,9 +14,11 @@ LCD::LCD(uint8_t rs, uint8_t enable, uint8_t d0, uint8_t d1, uint8_t d2, uint8_t
   _pageSelect = 1;
 }
 
+#define CHECK_INTERVAL 500 // define check interval in milliseconds
+
 void LCD::updateDisplay(int progress, String message, int level, unsigned long timeSinceWatering, unsigned long currentTime){
   _currentTime = currentTime;
-  if(_currentTime - _lastUpdate > 1000 || _currentTime < _lastUpdate){
+  if(_currentTime - _lastUpdate > CHECK_INTERVAL || _currentTime < _lastUpdate){
     _lastUpdate = _currentTime;
     clearRow(1);
     setProgressBar(progress);
@@ -41,6 +43,8 @@ void LCD::createCustomCharacters() {
   createChar(1, verticalBorder);
   createChar(2, endBorder);
   createChar(3, startBorder);
+  createChar(4, clock);
+  createChar(5, waterDroplet);
 }
 
 void LCD::displayCustomCharacters() {
@@ -48,6 +52,8 @@ void LCD::displayCustomCharacters() {
 }
 
 void LCD::setProgressBar(int progress) {
+  setCursor(9, 1);
+  write((byte)5);
   setCursor(10, 1);
   if (progress < 0 or progress > _maxProgress) {
     return;
@@ -81,26 +87,21 @@ void LCD::setLevel(int level){
 
 
 void LCD::updateTimeSinceWatering(unsigned long timeSinceWatering){
-  Serial.println(timeSinceWatering);
-  
   // Convert milliseconds to seconds
   unsigned long totalSeconds = timeSinceWatering / 1000;
-  
   // Calculate days, hours, minutes
   unsigned long days = totalSeconds / 86400;  //60 * 60 * 24
   unsigned long hours = (totalSeconds % 86400) / 3600;  //60 * 60
-  unsigned long minutes = (totalSeconds % 3600) / 60;
-  Serial.println(days);
-  Serial.println(hours);
-  Serial.println(minutes);
+  // unsigned long minutes = (totalSeconds % 3600) / 60;
   // Print the results
   setCursor(0,1);
+  write((byte)4);
   print(days);
-  print("d");
+  print("d ");
   print(hours);
   print("h");
-  print(minutes);
-  print("m");
+  // print(minutes);
+  // print("m");
 }
 
 
@@ -189,4 +190,26 @@ byte startBorder[8] = {
   0b10000,
   0b10000,
   0b11111
+};
+
+byte clock[8] = {
+  0b00000,
+  0b01110,
+  0b10101,
+  0b10111,
+  0b10001,
+  0b01110,
+  0b00000,
+  0b00000
+};
+
+byte waterDroplet[8] = {
+  0b00000,
+  0b00100,
+  0b00100,
+  0b01010,
+  0b10001,
+  0b10001,
+  0b01110,
+  0b00000
 };

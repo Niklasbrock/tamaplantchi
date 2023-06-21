@@ -17,7 +17,7 @@ int MoistureSensor::getMoistureLevel(unsigned long currentTime){
   if(_currentTime - _lastUpdate > 1000 || _currentTime < _lastUpdate){
     _moisture = readMoisture();
     _lastUpdate = _currentTime;
-    Serial.println(_moisture);
+    // Serial.println(_moisture);
     if(_moisture > 950){
       _moisture = 0;
     } else if (_moisture > 850){
